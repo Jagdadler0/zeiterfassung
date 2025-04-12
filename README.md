@@ -41,3 +41,26 @@ npm run lint
 > - Electron
 > - concurrently
 > - electron-builder
+
+# backend
+## mariadb
+### Setup
+> In order to setup your mariadb you need to:
+> - install mariadb from their [website](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.7.2&os=windows&cpu=x86_64&pkg=msi&mirror=hs-esslingen)
+> - go to where it's installed
+> ```sh
+> cd 'C:\Program Files\MariaDB 11.7\bin'
+> ```
+> - install
+> ```sh
+> npm install mariadb
+> ```
+> - login
+> ```sh
+> .\mysql -u root -p
+> ```
+
+### Creating a Database
+```sql
+CREATE DATABASE databasename;
+```
