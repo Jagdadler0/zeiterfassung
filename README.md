@@ -44,21 +44,31 @@ npm run lint
 
 # backend
 ## mariadb
-### Setup
 > In order to setup your mariadb you need to:
+> ### Windows
 > - install mariadb from their [website](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.7.2&os=windows&cpu=x86_64&pkg=msi&mirror=hs-esslingen)
 > - go to where it's installed
 > ```sh
 > cd 'C:\Program Files\MariaDB 11.7\bin'
 > ```
-> - install
+> **Installing MariaDB on your device**
 > ```sh
 > npm install mariadb
 > ```
-> - login
+> **Login to root**
 > ```sh
 > .\mysql -u root -p
 > ```
+> <br>
+>
+> ### Linux
+> 
+> ```sh
+> apt update
+> sudo apt install mariadb-server
+> sudo mysql_secure_installation
+> ```
+
 
 ### Creating a Database
 ```sql
