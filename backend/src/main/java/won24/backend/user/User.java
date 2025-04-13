@@ -10,9 +10,10 @@ public class User {
     private final int id;
     private String firstName;
     private String lastName;
+    private String email;
     private ShiftType shiftType;
 
-    public User(int id, String firstName, String lastName, ShiftType shiftType) {
+    public User(int id, String firstName, String lastName, String email, ShiftType shiftType) {
         this.id = id;
         setFirstName(firstName);
         setLastName(lastName);
@@ -29,6 +30,9 @@ public class User {
     public void setShiftType(ShiftType shiftType) {
         this.shiftType = shiftType;
     }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     // Getters
     public String getFirstName() {
@@ -42,5 +46,8 @@ public class User {
     }
     public ShiftType getShiftType() {
         return shiftType;
+    }
+    public String getEmail() {
+        return email;
     }
 }
