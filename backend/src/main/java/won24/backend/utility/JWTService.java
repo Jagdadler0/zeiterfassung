@@ -11,12 +11,12 @@ import java.security.Key;
 import java.util.Date;
 
 public class JWTService {
-    private static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private static final String SECRET = "mySuperSecretKeyWhichShouldBeLongEnoughAndSecure12345";
+    private static final Key key = Keys.hmacShaKeyFor(SECRET.getBytes());
     
-    public static String generateToken(String username, String password) {
+    public static String generateToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
-                .setSubject(password)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60)) // 1 Stunde gültig
                 .signWith(key)

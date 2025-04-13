@@ -6,16 +6,15 @@ import java.util.Map;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import won24.backend.utility.JWTService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
 @RequestMapping("/api/jwt")
 public class JWTController {
     @PostMapping("/generateToken")
-    public ResponseEntity<Map<String, String>> generateToken(@RequestParam String username, String password) {
-        String token = JWTService.generateToken(username, password);
+    public ResponseEntity<Map<String, String>> generateToken(@RequestParam String username) {
+        String token = JWTService.generateToken(username);
         Map<String, String> response = new HashMap<>();
         response.put("token", token);
         return ResponseEntity.ok(response);
@@ -33,6 +32,4 @@ public class JWTController {
             return ResponseEntity.badRequest().body(response);
         }
     }
-    
-    
 }
