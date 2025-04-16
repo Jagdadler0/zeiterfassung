@@ -62,7 +62,7 @@ color: isRunning.value ? '#F2EDDB': 'black'
   .info {
   font-size: 18px;
 }
-  .wrapper {
+.wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;

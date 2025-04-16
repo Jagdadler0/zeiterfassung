@@ -11,51 +11,66 @@ function userLogin() {
 }
 </script>
 <template>
-   <header class="header">
-        <nav class="nav-bar">
-          <a href="#">Tagesanzeige</a>
-          <a href="#">Übersicht</a>
-          <a href="#">Einstellungen</a>
-        </nav>
-      </header>
-  <div></div>
-  <div class="login">
-<uhrzeit></uhrzeit>
-    <input v-model="username" type="text" placeholder="E-Mail" id="username" />
-    <input v-model="passWord" type="password" placeholder="Password" id="password" />
-    <div class="buttons">
-      <button @click="userLogin" id="login">Login</button>
-    </div>
+  <div class="wrapper">
+    <header class="header">
+      <nav class="nav-bar">
+        <a href="#">Tagesanzeige</a>
+        <a href="#">Übersicht</a>
+        <a href="#">Einstellungen</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <uhrzeit />
+      <div class="timer-box">
+        <h1 class="title">Login</h1>
+        <div class="info">
+          <input v-model="userName" type="text" placeholder="E-Mail" id="username" />
+          <input v-model="passWord" type="password" placeholder="Password" id="password" />
+          <div class="buttons">
+            <button @click="userLogin" id="login">Login</button>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </template>
 <style scoped>
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F2EDDB;
+  }
 h1 {
   color: #333;
 }
-.nav-bar {
-    display: flex;
-    gap: 30px;
-  }
-  
-  .nav-bar a {
-    text-decoration: none;
-    font-weight: bold;
-    color: black;
-    font-family: Georgia, serif;
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-bar a:hover {
-    background-color: #ddd;
-  }
-header {
-  background: #ede6d6;
-  padding: 1rem;
-  font-size: 2rem;
+.header {
+  background-color: #F2EDDB;
+  padding: 20px;
+  border-bottom: 1px solid black;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.nav-bar {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-family: Georgia, serif;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-bar a:hover {
+  background-color: #ddd;
 }
 .content {
     flex: 1;
@@ -77,16 +92,55 @@ main {
   align-items: center;
 }
 input {
-  padding: 0.7rem;
-  border-radius: 20px;
+  padding: 14px 55px;
+  border-radius: 12px;
   border: 1px solid #ccc;
   text-align: center;
+  height: 25px;
+  margin-bottom: 20px; 
+  display: block; 
 }
-
 button {
-  padding: 0.7rem 1.5rem;
-  border-radius: 20px;
+  padding: 14px 55px;
+  font-size: 25px;
+  border-radius: 12px;
   border: none;
   cursor: pointer;
+  background-color: #90AC8F;
+  font-family: "Georgia", serif;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+  align-self: center; /* zentriert ihn, falls nötig */
+}
+
+button:hover {
+    transform: scale(1.05);
+  }
+  .timer-box {
+  background-color: #F2EDDB;
+  padding: 30px;
+  border: 2px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 450px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 </style>
