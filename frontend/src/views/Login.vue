@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import uhrzeit from '@/components/uhrzeit.vue'
 const userName = ref('')
 const passWord = ref('')
 function userLogin() {
@@ -10,11 +11,17 @@ function userLogin() {
 }
 </script>
 <template>
+   <header class="header">
+        <nav class="nav-bar">
+          <a href="#">Tagesanzeige</a>
+          <a href="#">Übersicht</a>
+          <a href="#">Einstellungen</a>
+        </nav>
+      </header>
   <div></div>
   <div class="login">
-    <div class="time-display" id="clock">09:26</div>
-
-    <input v-model="userName" type="text" placeholder="Username" id="username" />
+<uhrzeit></uhrzeit>
+    <input v-model="username" type="text" placeholder="E-Mail" id="username" />
     <input v-model="passWord" type="password" placeholder="Password" id="password" />
     <div class="buttons">
       <button @click="userLogin" id="login">Login</button>
@@ -25,13 +32,24 @@ function userLogin() {
 h1 {
   color: #333;
 }
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #fdfcf6;
-  display: flex;
-  flex-direction: column;
-}
+.nav-bar {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-bar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-family: Georgia, serif;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-bar a:hover {
+    background-color: #ddd;
+  }
 header {
   background: #ede6d6;
   padding: 1rem;
@@ -39,6 +57,15 @@ header {
   display: flex;
   align-items: center;
 }
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
 main {
   display: flex;
   padding: 2rem;

@@ -1,15 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-//--> Uhrzeit <--
-let intervalId = null
-const time = ref(new Date().toLocaleTimeString())
-onMounted(() => {
-intervalId = setInterval(() => {
-time.value = new Date().toLocaleTimeString('de-DE', {
-hour: '2-digit',
-minute: '2-digit'})
-}, 1000)
-})
+import uhrzeit from '@/components/uhrzeit.vue'
 //--> Buttons <--
 const isRunning = ref(false)
 const totalSeconds = ref(0)
@@ -49,7 +40,7 @@ color: isRunning.value ? '#F2EDDB': 'black'
       </header>
   
       <main class="content">
-        <div class="clock" id="clock">{{ time }}</div>
+      <uhrzeit></uhrzeit>
         <div class="timer-box">
             <h1 class="title">Zeiterfassung</h1>
             <h2 class="title">{{ formattedTime }}</h2>
@@ -68,18 +59,6 @@ color: isRunning.value ? '#F2EDDB': 'black'
     box-sizing: border-box;
   }
   
-  body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #F2EDDB;
-    color: black;
-  }
-  .clock {
-    font-size: 60px;
-    margin-bottom: 100px;
-  }
   .info {
   font-size: 18px;
 }
